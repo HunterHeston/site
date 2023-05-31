@@ -1,0 +1,3 @@
+[submodule "submodules/db"]
+	path = submodules/db
+	url = https://github.com/HunterHeston/shared-database-schema.git
