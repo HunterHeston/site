@@ -2,6 +2,7 @@ import { GithubIcon, LinkedinIcon, TwitterIcon } from "lucide-react";
 import { type NextPage } from "next";
 import Head from "next/head";
 import Link from "next/link";
+import Main from "~/components/styled-tags/main";
 
 const Home: NextPage = () => {
   return (
@@ -11,7 +12,7 @@ const Home: NextPage = () => {
         <meta name="description" content="Hunter Heston's personal website." />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="prose flex flex-col gap-5 px-8 pt-20">
+      <Main>
         <h1>Software Developer, Freelancer, Builder</h1>
         <p>
           I’m Hunter, I’m a software and website developer based in San
@@ -34,7 +35,7 @@ const Home: NextPage = () => {
           <button>Hire Me</button>
           <Link href="/services">Services</Link>
         </div>
-      </main>
+      </Main>
     </>
   );
 };

@@ -1,5 +1,6 @@
 import { type NextPage } from "next";
 import Head from "next/head";
+import Main from "~/components/styled-tags/main";
 
 const Home: NextPage = () => {
   return (
@@ -9,7 +10,7 @@ const Home: NextPage = () => {
         <meta name="description" content="Hunter Heston's personal website." />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="prose">
+      <Main>
         <h1>Software, Hardware and other tech I use</h1>
 
         <h2>Hardware</h2>
@@ -61,7 +62,7 @@ const Home: NextPage = () => {
           <li>Cron calendar</li>
           <li>Hey email client</li>
         </ul>
-      </main>
+      </Main>
     </>
   );
 };

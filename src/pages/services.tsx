@@ -1,5 +1,6 @@
 import { type NextPage } from "next";
 import Head from "next/head";
+import Main from "~/components/styled-tags/main";
 
 const Home: NextPage = () => {
   return (
@@ -12,7 +13,7 @@ const Home: NextPage = () => {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="prose">
+      <Main>
         <h1>Services I offer</h1>
         <p>
           Check out my services! Whether you&apos;re looking to improve your
@@ -29,7 +30,7 @@ const Home: NextPage = () => {
           <li>Content writing service. </li>
           <li>Google add words placement</li>
         </ul>
-      </main>
+      </Main>
     </>
   );
 };

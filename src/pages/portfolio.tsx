@@ -1,5 +1,6 @@
 import { type NextPage } from "next";
 import Head from "next/head";
+import Main from "~/components/styled-tags/main";
 
 const Home: NextPage = () => {
   return (
@@ -9,8 +10,8 @@ const Home: NextPage = () => {
         <meta name="description" content="Hunter Heston's personal website." />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="prose">
-        <h1>Some of my past work:</h1>
+      <Main>
+        <h1>Some of my past work</h1>
         <p>
           Over the years, I have had the pleasure of building a variety of
           projects for my clients. These range from custom e-commerce platforms
@@ -34,7 +35,7 @@ const Home: NextPage = () => {
           A e-commerce website geared at selling bandanas with pet names
           embroidered on them.{" "}
         </p>
-      </main>
+      </Main>
     </>
   );
 };

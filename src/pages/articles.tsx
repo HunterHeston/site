@@ -1,7 +1,6 @@
 import { type NextPage } from "next";
 import Head from "next/head";
-import Link from "next/link";
-import { api } from "~/utils/api";
+import Main from "~/components/styled-tags/main";
 
 const Home: NextPage = () => {
   return (
@@ -11,7 +10,7 @@ const Home: NextPage = () => {
         <meta name="description" content="Hunter Heston's personal website." />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="prose">
+      <Main>
         <h1>Writing about tech and other things.</h1>
         <p>
           My blog is a place where I share my thoughts and experiences about a
@@ -28,7 +27,7 @@ const Home: NextPage = () => {
         <ul>
           <li>Writing a custom hash function in JavaScript</li>
         </ul>
-      </main>
+      </Main>
     </>
   );
 };

@@ -1,5 +1,7 @@
 import { type NextPage } from "next";
+
 import Head from "next/head";
+import Main from "~/components/styled-tags/main";
 
 const Home: NextPage = () => {
   return (
@@ -9,7 +11,7 @@ const Home: NextPage = () => {
         <meta name="description" content="About Hunter Heston." />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="prose">
+      <Main>
         <h1>About</h1>
         <p>
           I’m a professional software engineer. That just means that I’ve
@@ -49,7 +51,7 @@ const Home: NextPage = () => {
           <li>March 2023: Left full-time employment.</li>
           <li>Present day: Working on my own small software business.</li>
         </ul>
-      </main>
+      </Main>
     </>
   );
 };
