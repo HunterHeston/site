@@ -6,6 +6,7 @@ import {
   DropdownMenuTrigger,
 } from "~/components/ui/dropdown-menu";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Navigation() {
   return (
@@ -21,13 +22,25 @@ export default function Navigation() {
         <DropdownMenu>
           <DropdownMenuTrigger>Menu</DropdownMenuTrigger>
           <DropdownMenuContent>
-            <DropdownMenuItem>Service</DropdownMenuItem>
-            <DropdownMenuItem>Portfolio</DropdownMenuItem>
-            <DropdownMenuItem>About</DropdownMenuItem>
-            <DropdownMenuItem>Articles</DropdownMenuItem>
-            <DropdownMenuItem>Contact</DropdownMenuItem>
+            <DropdownMenuItem>
+              <Link href="/services">Service</Link>
+            </DropdownMenuItem>
+            <DropdownMenuItem>
+              <Link href="/portfolio">Portfolio</Link>
+            </DropdownMenuItem>
+            <DropdownMenuItem>
+              <Link href="/about">About</Link>
+            </DropdownMenuItem>
+            <DropdownMenuItem>
+              <Link href="/articles">Articles</Link>
+            </DropdownMenuItem>
+            <DropdownMenuItem>
+              <Link href="/contact">Contact</Link>
+            </DropdownMenuItem>
             <DropdownMenuSeparator />
-            <DropdownMenuItem>Hire Me</DropdownMenuItem>
+            <DropdownMenuItem>
+              <Link href="/contact">Hire Me</Link>
+            </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
         <div>☀️</div>
