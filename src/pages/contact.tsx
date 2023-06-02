@@ -1,6 +1,7 @@
 import { type NextPage } from "next";
 
 import Head from "next/head";
+import { ContactForm } from "~/components/forms/contact";
 import Main from "~/components/styled-tags/main";
 
 const Home: NextPage = () => {
@@ -18,15 +19,7 @@ const Home: NextPage = () => {
           contact@hunterheston.com
         </p>
 
-        <form action="submit">
-          <label htmlFor="name">Name</label>
-          <input type="text" name="name" id="name" />
-          <label htmlFor="email">Email</label>
-          <input type="email" name="email" id="email" />
-          <label htmlFor="message">Message</label>
-          <textarea name="message" id="message" cols={30} rows={10}></textarea>
-          <button type="submit">Send 🚀</button>
-        </form>
+        <ContactForm></ContactForm>
       </Main>
     </>
   );
