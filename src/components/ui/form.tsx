@@ -12,7 +12,7 @@ import {
 
 import { cn } from "@/lib/utils";
 import { Label } from "src/components/ui/label";
-import { ClassValue } from "clsx";
+import type { ClassValue } from "clsx";
 
 const Form = FormProvider;
 
