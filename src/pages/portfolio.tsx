@@ -1,5 +1,7 @@
 import { type NextPage } from "next";
 import Head from "next/head";
+import Link from "next/link";
+import H1 from "~/components/styled-tags/h1";
 import Main from "~/components/styled-tags/main";
 
 const Home: NextPage = () => {
@@ -11,14 +13,15 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Main>
-        <h1>Some of my past work</h1>
+        <H1>
+          I&apos;m constantly building new things. Here are a few recent
+          creations.
+        </H1>
         <p>
-          Over the years, I have had the pleasure of building a variety of
-          projects for my clients. These range from custom e-commerce platforms
-          and content management systems to complex data analysis tools and APIs
-          that integrate with third-party services. Each project has been unique
-          and challenging, and I am proud of the solutions that I have
-          delivered.
+          I&apos;m a full stack developer and I&apos;ve built tons of little
+          projects over the years. Here are a few of my favorites. If something
+          sparks your interest, feel free to{" "}
+          <Link href="/contact">reach out to me</Link> about it!
         </p>
         <h2>Hawken Pet Sitting</h2>
         <p>
