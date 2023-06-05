@@ -5,6 +5,7 @@ import Timeline, { type TimelineItem } from "~/components/custom/timeline";
 import H1 from "~/components/styled-tags/h1";
 import H2 from "~/components/styled-tags/h2";
 import Main from "~/components/styled-tags/main";
+import { Badge } from "~/components/ui/badge";
 
 const timelineItems: TimelineItem[] = [
   {
@@ -86,11 +87,15 @@ const Home: NextPage = () => {
           I&apos;m Hunter Heston. I live in San Francisco where I build
           software.
         </H1>
+        <div id="badge-container" className="flex flex-wrap gap-2">
+          <Badge>Software Engineer</Badge>
+          <Badge>Web Developer</Badge>
+          <Badge>Entrepreneur</Badge>
+          <Badge>Designer</Badge>
+          <Badge>Builder</Badge>
+        </div>
         <p>
-          Passionate Software Engineer | Building Impactful Web Applications
-        </p>
-        <p>
-          With years of experience as a professional software engineer,
+          With 6+ years of experience as a professional software engineer,
           I&apos;ve immersed myself in the world of coding, constantly expanding
           my knowledge and skills. My deep interest in the web has fueled my
           enthusiasm for creating web applications that make a tangible impact
