@@ -8,7 +8,7 @@ type MainProps = {
 
 export default function Main({ children, className }: MainProps) {
   return (
-    <main className={cn("flex flex-col gap-5 px-8 pt-20", className)}>
+    <main className={cn("flex flex-col gap-5 px-4 pt-20", className)}>
       {children}
     </main>
   );
