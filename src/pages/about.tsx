@@ -1,9 +1,7 @@
 import { type NextPage } from "next";
 
 import Head from "next/head";
-import Timeline, { type TimelineItem } from "~/components/custom/timeline";
 import H1 from "~/components/styled-tags/h1";
-import H2 from "~/components/styled-tags/h2";
 import Main from "~/components/styled-tags/main";
 import { Badge } from "~/components/ui/badge";
 
