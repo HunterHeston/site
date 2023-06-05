@@ -1,6 +1,7 @@
 import { type NextPage } from "next";
 import Head from "next/head";
 import Link from "next/link";
+import ProjectCard from "~/components/custom/projectCard";
 import H1 from "~/components/styled-tags/h1";
 import Main from "~/components/styled-tags/main";
 
@@ -23,21 +24,31 @@ const Home: NextPage = () => {
           sparks your interest, feel free to{" "}
           <Link href="/contact">reach out to me</Link> about it!
         </p>
-        <h2>Hawken Pet Sitting</h2>
-        <p>
-          A pet sitters website geared at landing referrals and easing the
-          process of booking new clients.{" "}
-        </p>
-        <h2>Shrink.dev</h2>
-        <p>
-          A url shortening service with fun animations. Similar to bit.ly but
-          more exciting.{" "}
-        </p>
-        <h2>Personalized Dog Bandanas</h2>
-        <p>
-          A e-commerce website geared at selling bandanas with pet names
-          embroidered on them.{" "}
-        </p>
+        <ProjectCard
+          title="Hawken Pet Sitting"
+          description="A pet sitters website geared at landing referrals and easing the
+          process of booking new clients."
+          imgPath="/images/hawken-pet-sitting-logo.png"
+          fallback="HPS"
+          badges={["React", "Next.js", "TailwindCSS", "TypeScript"]}
+        />
+
+        <ProjectCard
+          title="Shrink.dev"
+          description="A url shortening service with fun animations. Similar to bit.ly but
+          more exciting."
+          imgPath="/images/shrink.dev-logo.png"
+          fallback="SD"
+          badges={["React", "Next.js", "TailwindCSS", "TypeScript"]}
+        />
+        <ProjectCard
+          title="Personalized Dog Bandanas"
+          description="A e-commerce website geared at selling bandanas with pet names
+          embroidered on them."
+          imgPath="/images/personalized-dog-bandanas-logo.png"
+          fallback="PDB"
+          badges={["SquareSpace", "E-Commerce", "JavaScript"]}
+        />
       </Main>
     </>
   );

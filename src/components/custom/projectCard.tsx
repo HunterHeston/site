@@ -1,4 +1,3 @@
-import { CheckCircle } from "lucide-react";
 import {
   Card,
   CardContent,
@@ -8,24 +7,34 @@ import {
 } from "~/components/ui/card";
 import { Badge } from "~/components/ui/badge";
 
+import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
+
 // ServiceCardProps
 type ServiceCardProps = {
   title: string;
   description: string;
+  imgPath: string;
+  fallback: string;
   badges?: string[];
 };
 
-export default function ServiceCard({
+export default function ProjectCard({
   title,
   description,
+  imgPath,
+  fallback,
   badges,
 }: ServiceCardProps) {
   return (
     <Card>
       <CardHeader>
-        <CardTitle className="flex items-center gap-2">
-          <CheckCircle></CheckCircle> {title}
-        </CardTitle>
+        <div className="flex gap-2">
+          <Avatar>
+            <AvatarImage src={imgPath} alt="logo"></AvatarImage>
+            <AvatarFallback>{fallback}</AvatarFallback>
+          </Avatar>
+          <CardTitle className="flex items-center gap-2">{title}</CardTitle>
+        </div>
         <CardDescription>{description}</CardDescription>
       </CardHeader>
       {badges && (
