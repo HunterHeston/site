@@ -92,28 +92,28 @@ const Home: NextPage = () => {
           <Badge>Designer</Badge>
           <Badge>Builder</Badge>
         </div>
-        <p>
+        <p className="text-zinc-500">
           With 6+ years of experience as a professional software engineer,
           I&apos;ve immersed myself in the world of coding, constantly expanding
           my knowledge and skills. My deep interest in the web has fueled my
           enthusiasm for creating web applications that make a tangible impact
           on real people
         </p>
-        <p>
+        <p className="text-zinc-500">
           Driven by a relentless curiosity, I thrive on learning and embracing
           new technologies. My expertise lies in understanding how computers
           work and leveraging that knowledge to build innovative solutions. I am
           dedicated to crafting web experiences that empower businesses to
           thrive in the digital realm.
         </p>
-        <p>
+        <p className="text-zinc-500">
           From revamping website designs to optimizing performance and
           developing robust e-commerce platforms, I bring creativity and
           technical proficiency to every project. By collaborating closely with
           clients and tailoring solutions to their unique needs, I ensure
           exceptional quality and exceed expectations.
         </p>
-        <p>
+        <p className="text-zinc-500">
           Join me in leveraging the full potential of the web to transform your
           online presence. Let&apos;s create something remarkable together.
         </p>
