@@ -5,6 +5,7 @@ import Link from "next/link";
 import ProjectList, { type Project } from "~/components/custom/projectList";
 import H1 from "~/components/styled-tags/h1";
 import Main from "~/components/styled-tags/main";
+import { Button } from "~/components/ui/button";
 
 const projects: Project[] = [
   {
@@ -43,26 +44,37 @@ const Home: NextPage = () => {
       </Head>
       <Main>
         <H1>Software Developer, Freelancer, Builder</H1>
-        <p>
+        <p className="mb- text-zinc-500">
           I’m Hunter, I’m a software and website developer based in San
           Francisco. I’ve been developing software professionally for over 7
           year at Google and Lockheed Martin. Now I’m using all of the skills
           I’ve learned to improve my clients businesses on the web.{" "}
         </p>
-        <div className="flex gap-10">
+        <div className="mb-10 flex gap-10">
           <a href="https://github.com/hunterheston" target="_blank">
-            <GithubIcon fill="currentColor"></GithubIcon>
+            <GithubIcon
+              className="h-5 w-5 text-zinc-500"
+              fill="currentColor"
+            ></GithubIcon>
           </a>
           <a href="https://twitter.com/hunterheston" target="_blank">
-            <TwitterIcon fill="currentColor"></TwitterIcon>
+            <TwitterIcon
+              className="h-5 w-5 text-zinc-500"
+              fill="currentColor"
+            ></TwitterIcon>
           </a>
           <a href="https://www.linkedin.com/in/hunterheston" target="_blank">
-            <LinkedinIcon fill="currentColor"></LinkedinIcon>
+            <LinkedinIcon
+              className="h-5 w-5 text-zinc-500"
+              fill="currentColor"
+            ></LinkedinIcon>
           </a>
         </div>
-        <div className="flex gap-10">
-          <button>Hire Me</button>
-          <Link href="/services">Services</Link>
+        <div className="mb-20 flex gap-10">
+          <Button className="grow">Hire Me!</Button>
+          <Button className="grow" variant="outline">
+            <Link href="/services">Services</Link>
+          </Button>
         </div>
         <ProjectList projects={projects}></ProjectList>
       </Main>
