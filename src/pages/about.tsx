@@ -5,7 +5,9 @@ import H1 from "~/components/styled-tags/h1";
 import Main from "~/components/styled-tags/main";
 import { Badge } from "~/components/ui/badge";
 
-const timelineItems: TimelineItem[] = [
+// I'll bring this back later.
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const timelineItems = [
   {
     eventType: "Life",
     date: "April 1994",
