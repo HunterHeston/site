@@ -18,7 +18,7 @@ const Home: NextPage = () => {
       </Head>
       <Main>
         <H1>Services I offer</H1>
-        <p>
+        <p className="mb-10 text-zinc-500">
           Check out my services! Whether you&apos;re looking to improve your
           website&apos;s design, add performance monitoring, or get help with
           content writing, I have a solution for you.{" "}

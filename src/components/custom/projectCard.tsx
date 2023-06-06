@@ -26,7 +26,7 @@ export default function ProjectCard({
   badges,
 }: ServiceCardProps) {
   return (
-    <Card className="transition-all hover:bg-zinc-50">
+    <Card className="transition-all hover:-translate-y-1 hover:bg-zinc-50">
       <CardHeader>
         <div className="flex gap-2">
           <Avatar>
