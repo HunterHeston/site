@@ -29,7 +29,7 @@ export default function ProjectCard({
     <Card className="transition-all hover:-translate-y-1 hover:bg-zinc-50">
       <CardHeader>
         <div className="flex gap-2">
-          <Avatar>
+          <Avatar className="h-8 w-8 shadow-md shadow-neutral-400 ">
             <AvatarImage src={imgPath} alt="logo"></AvatarImage>
             <AvatarFallback>{fallback}</AvatarFallback>
           </Avatar>

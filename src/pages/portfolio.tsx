@@ -28,24 +28,23 @@ const Home: NextPage = () => {
           title="Hawken Pet Sitting"
           description="A pet sitters website geared at landing referrals and easing the
           process of booking new clients."
-          imgPath="/images/hawken-pet-sitting-logo.png"
+          imgPath="work/hawken-pet-care.png"
           fallback="HPS"
           badges={["React", "Next.js", "TailwindCSS", "TypeScript"]}
         />
-
         <ProjectCard
           title="Shrink.dev"
           description="A url shortening service with fun animations. Similar to bit.ly but
           more exciting."
-          imgPath="/images/shrink.dev-logo.png"
+          imgPath="work/shrink.png"
           fallback="SD"
           badges={["React", "Next.js", "TailwindCSS", "TypeScript"]}
         />
         <ProjectCard
           title="Personalized Dog Bandanas"
-          description="A e-commerce website geared at selling bandanas with pet names
+          description="An e-commerce website for selling bandanas with pet names
           embroidered on them."
-          imgPath="/images/personalized-dog-bandanas-logo.png"
+          imgPath="work/pdb.png"
           fallback="PDB"
           badges={["SquareSpace", "E-Commerce", "JavaScript"]}
         />

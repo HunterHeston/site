@@ -8,6 +8,7 @@ import {
 
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 import { Cpu } from "lucide-react";
+import LiftedAvatar from "~/components/custom/liftedAvatar";
 
 export type Project = {
   title: string;
@@ -38,10 +39,10 @@ export default function ProjectList({ projects }: ServiceCardProps) {
       <CardContent className="flex flex-col gap-6 text-xs">
         {projects.map((project, i) => (
           <div key={i} className="flex items-center gap-2">
-            <Avatar className="h-8 w-8 p-2 shadow-sm shadow-neutral-400">
-              <AvatarImage src={project.imgPath} alt="logo"></AvatarImage>
-              <AvatarFallback>{project.fallback}</AvatarFallback>
-            </Avatar>
+            <LiftedAvatar
+              imgPath={project.imgPath}
+              fallback={project.fallback}
+            />
             <div className="flex grow flex-col gap-1">
               <h2 className="text-sm">{project.title}</h2>
               <div className="flex justify-between text-xs text-zinc-500">
