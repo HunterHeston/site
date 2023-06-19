@@ -12,7 +12,9 @@ import {
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
-import { useForm } from "react-hook-form";
+import { set, useForm } from "react-hook-form";
+import { useState } from "react";
+import { Loader2 } from "lucide-react";
 
 const formSchema = z.object({
   fullname: z.string().min(1, {
@@ -27,6 +29,8 @@ const formSchema = z.object({
 });
 
 export function ContactForm() {
+  const [loading, setLoading] = useState(false);
+
   // 1. Define your form.
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -39,6 +43,7 @@ export function ContactForm() {
 
   // 2. Define a submit handler.
   function onSubmit(values: z.infer<typeof formSchema>) {
+    setLoading(true);
     // Do something with the form values.
     // ✅ This will be type-safe and validated.
     console.log(values);
@@ -89,7 +94,10 @@ export function ContactForm() {
             </FormItem>
           )}
         />
-        <Button type="submit">Submit</Button>
+        <Button disabled={loading} type="submit">
+          {loading ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : null}
+          {loading ? "Please Wait" : "Submit"}
+        </Button>
       </form>
     </Form>
   );
