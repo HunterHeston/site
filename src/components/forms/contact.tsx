@@ -100,6 +100,7 @@ export function ContactForm() {
           ) : null}
           {mutation.isLoading ? "Please Wait" : "Submit"}
         </Button>
+        {mutation.isError ? <p>error</p> : null}
       </form>
     </Form>
   );

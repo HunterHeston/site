@@ -1,4 +1,6 @@
+import { TRPCError } from "@trpc/server";
 import { z } from "zod";
+import { addContactToDatabase } from "~/lib/notion";
 import { createTRPCRouter, publicProcedure } from "~/server/api/trpc";
 
 export const formsRouter = createTRPCRouter({
@@ -10,7 +12,21 @@ export const formsRouter = createTRPCRouter({
         message: z.string(),
       })
     )
-    .mutation(({ input }) => {
+    .mutation(async ({ input }) => {
+      try {
+        await addContactToDatabase({
+          name: input.fullname,
+          email: input.email,
+          message: input.message,
+        });
+      } catch (e) {
+        throw new TRPCError({
+          code: "INTERNAL_SERVER_ERROR",
+          message: "Error adding contact to database",
+          cause: e,
+        });
+      }
+
       console.log(input);
       return {
         message: `Hello ${input.fullname}`,
