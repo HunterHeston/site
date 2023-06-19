@@ -1,8 +1,5 @@
-"use client";
-
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
-import { useForm } from "react-hook-form";
 import {
   Form,
   FormControl,
@@ -12,15 +9,13 @@ import {
   FormLabel,
   FormMessage,
 } from "../ui/form";
-import { Input } from "src/components/ui/input";
-import { Button } from "src/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import { useForm } from "react-hook-form";
 
 const formSchema = z.object({
-  username: z.string().min(2, {
-    message: "Username must be at least 2 characters.",
-  }),
-  email: z.string().email({
-    message: "Please enter a valid email address.",
+  fullname: z.string().min(1, {
+    message: "Full name must not be empty.",
   }),
 });
 
@@ -29,8 +24,7 @@ export function ContactForm() {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      username: "",
-      email: "",
+      fullname: "",
     },
   });
 
@@ -43,35 +37,17 @@ export function ContactForm() {
 
   return (
     <Form {...form}>
-      <form onSubmit={() => form.handleSubmit(onSubmit)} className="space-y-8">
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
         <FormField
           control={form.control}
-          name="username"
+          name="fullname"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Username</FormLabel>
+              <FormLabel>Full Name</FormLabel>
               <FormControl>
-                <Input placeholder="shadcn" {...field} />
+                <Input placeholder="" {...field} />
               </FormControl>
-              <FormDescription>
-                This is your public display name.
-              </FormDescription>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={form.control}
-          name="email"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Email</FormLabel>
-              <FormControl>
-                <Input placeholder="example@email.com" {...field} />
-              </FormControl>
-              <FormDescription>
-                We won&apos;t share this with anyone.
-              </FormDescription>
+              <FormDescription>Your full name.</FormDescription>
               <FormMessage />
             </FormItem>
           )}
