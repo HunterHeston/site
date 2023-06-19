@@ -12,9 +12,10 @@ import {
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
-import { set, useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { useState } from "react";
 import { Loader2 } from "lucide-react";
+import { api } from "@/utils/api";
 
 const formSchema = z.object({
   fullname: z.string().min(1, {
@@ -30,6 +31,7 @@ const formSchema = z.object({
 
 export function ContactForm() {
   const [loading, setLoading] = useState(false);
+  const mutation = api.forms.contactSubmit.useMutation();
 
   // 1. Define your form.
   const form = useForm<z.infer<typeof formSchema>>({
@@ -44,6 +46,7 @@ export function ContactForm() {
   // 2. Define a submit handler.
   function onSubmit(values: z.infer<typeof formSchema>) {
     setLoading(true);
+    mutation.mutate(values);
     // Do something with the form values.
     // ✅ This will be type-safe and validated.
     console.log(values);
