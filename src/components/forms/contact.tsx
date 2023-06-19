@@ -13,7 +13,6 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { useForm } from "react-hook-form";
-import { useState } from "react";
 import { Loader2 } from "lucide-react";
 import { api } from "@/utils/api";
 
@@ -30,7 +29,6 @@ const formSchema = z.object({
 });
 
 export function ContactForm() {
-  const [loading, setLoading] = useState(false);
   const mutation = api.forms.contactSubmit.useMutation();
 
   // 1. Define your form.
@@ -45,7 +43,6 @@ export function ContactForm() {
 
   // 2. Define a submit handler.
   function onSubmit(values: z.infer<typeof formSchema>) {
-    setLoading(true);
     mutation.mutate(values);
     // Do something with the form values.
     // ✅ This will be type-safe and validated.
@@ -97,9 +94,11 @@ export function ContactForm() {
             </FormItem>
           )}
         />
-        <Button disabled={loading} type="submit">
-          {loading ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : null}
-          {loading ? "Please Wait" : "Submit"}
+        <Button disabled={mutation.isLoading} type="submit">
+          {mutation.isLoading ? (
+            <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+          ) : null}
+          {mutation.isLoading ? "Please Wait" : "Submit"}
         </Button>
       </form>
     </Form>
