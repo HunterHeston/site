@@ -1,5 +1,6 @@
 import { Client } from "@notionhq/client";
 import { NotionToMarkdown } from "notion-to-md";
+import { type } from "os";
 
 if (!process.env.NOTION_API_KEY) {
   throw new Error("NOTION_API_KEY is not defined");
@@ -13,6 +14,7 @@ const notion = new Client({ auth: process.env.NOTION_API_KEY });
 const nmd = new NotionToMarkdown({ notionClient: notion });
 
 const databaseId = process.env.NOTION_CONTACT_DATABASE_ID;
+const blogPageID = "64a8f0d5-98b6-4e40-8bc3-a844c57553b1";
 
 export type Contact = {
   name: string;
@@ -103,16 +105,25 @@ export async function addContactToDatabase(
 ////////////////////////
 // Blog articles
 ////////////////////////
-const blogPageID = "64a8f0d5-98b6-4e40-8bc3-a844c57553b1";
+export type BlogArticle = {
+  title: string;
+  markdown: string;
+  created: string;
+};
 
-export async function getBlogArticles() {
+// Fetches all blog articles
+export async function getBlogArticles(): Promise<BlogArticle[]> {
   const articles = await getBlogPageChildrenIDs();
 
   const articleContent = articles.map(async (article) => {
     const mdblocks = await nmd.pageToMarkdown(article.id);
     const mdstring = nmd.toMarkdownString(mdblocks);
 
-    return mdstring.parent;
+    return {
+      title: article.title,
+      markdown: mdstring.parent || "",
+      created: article.created,
+    };
   });
 
   return Promise.all(articleContent);
@@ -125,20 +136,47 @@ async function getBlogPageChildrenIDs() {
     block_id: blogPageID,
   });
 
-  console.log(response.results);
-
   return response.results.map((result) => {
+    // Notion api typing lacks most fields.
+    const resultData = result as NotionBlock;
     return {
-      id: result.id,
+      id: resultData.id,
+      title: resultData.child_page.title,
+      created: resultData.created_time,
     };
   });
 }
 
-// Fetch the content of a blog article
-export async function getBlogArticleContent(id: string) {
-  const response = await notion.blocks.children.list({
-    block_id: id,
-  });
+////////////////////////
+// Notion types
+////////////////////////
+// Type representing the parent of a block
+type BlockParent = {
+  type: string;
+  page_id: string;
+};
 
-  return response.results;
-}
+// Type representing a person or bot that modified a block
+type BlockUser = {
+  object: string;
+  id: string;
+};
+
+type ChildPage = {
+  title: string;
+};
+
+// Type representing a block
+type NotionBlock = {
+  object: string;
+  id: string;
+  parent: BlockParent;
+  created_time: string;
+  last_edited_time: string;
+  created_by: BlockUser;
+  last_edited_by: BlockUser;
+  has_children: Boolean;
+  archived: Boolean;
+  type: string;
+  child_page: ChildPage;
+};

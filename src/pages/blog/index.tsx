@@ -1,14 +1,14 @@
 import { GetServerSideProps } from "next";
 import { ReactMarkdown } from "react-markdown/lib/react-markdown";
-import { getBlogArticles } from "~/lib/notion";
+import { BlogArticle, getBlogArticles } from "~/lib/notion";
 
-export default function Blogs({ articles }: { articles: string[] }) {
+export default function Blogs({ articles }: { articles: BlogArticle[] }) {
   return (
     <div>
       <h1>Blog</h1>
       {articles.map((article, i) => (
         <ReactMarkdown className="prose" key={i}>
-          {article}
+          {[`# ${article.title}`, article.markdown].join("\n\n")}
         </ReactMarkdown>
       ))}
     </div>
