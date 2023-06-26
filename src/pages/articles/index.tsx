@@ -1,9 +1,10 @@
 import { ArrowRight } from "lucide-react";
-import { type NextPage } from "next";
+import { GetStaticProps, type NextPage } from "next";
 import Head from "next/head";
 import Link from "next/link";
 import H1 from "~/components/styled-tags/h1";
 import Main from "~/components/styled-tags/main";
+import { BlogArticle, getBlogArticles } from "~/lib/notion";
 
 type Post = {
   title: string;
@@ -30,7 +31,7 @@ const posts: Post[] = [
   },
 ];
 
-const Home: NextPage = () => {
+export default function Articles({ articles }: { articles: BlogArticle[] }) {
   return (
     <>
       <Head>
@@ -47,21 +48,20 @@ const Home: NextPage = () => {
           we can use it to improve our world.
         </p>
 
-        {posts.map((post, i) => {
+        {articles.map((article, i) => {
           return (
             <div
               className="mb-10 rounded-md transition-all hover:bg-zinc-50"
               key={i}
             >
-              <h3 className="mb-3 text-xl font-semibold">{post.title}</h3>
-              <p className="text-sm text-zinc-500">
-                {post.date} *{" "}
+              <h3 className="mb-2 text-xl font-semibold">{article.title}</h3>
+              <p className="mb-1 text-sm text-zinc-500">
+                {dateStringToDayMonthYear(article.created)} *{" "}
                 <span className="italic">
-                  {minutesToReadContent(post.content)} min read
+                  {minutesToReadContent(article.markdown)} min read
                 </span>
               </p>
-              <p className="mb-2 text-lg">{post.excerpt}</p>
-              <Link className="underline" href={post.slug}>
+              <Link className="underline" href={article.slug}>
                 Read full article <ArrowRight className="inline h-4 w-4" />
               </Link>
             </div>
@@ -70,12 +70,26 @@ const Home: NextPage = () => {
       </Main>
     </>
   );
+}
+
+export const getStaticProps: GetStaticProps = async () => {
+  const articles = await getBlogArticles();
+
+  return {
+    props: {
+      articles: articles,
+    },
+  };
 };
 
+// helpers
 function minutesToReadContent(content: string): number {
   const words = content.split(" ");
   const minutes = Math.ceil(words.length / 200);
   return minutes;
 }
 
-export default Home;
+function dateStringToDayMonthYear(dateString: string): string {
+  const date = new Date(dateString);
+  return `${date.getMonth()}-${date.getDate()}-${date.getFullYear()}`;
+}

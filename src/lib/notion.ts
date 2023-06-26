@@ -109,6 +109,7 @@ export type BlogArticle = {
   title: string;
   markdown: string;
   created: string;
+  slug: string;
 };
 
 // Fetches all blog articles
@@ -123,6 +124,7 @@ export async function getBlogArticles(): Promise<BlogArticle[]> {
       title: article.title,
       markdown: mdstring.parent || "",
       created: article.created,
+      slug: article.title.toLowerCase().replace(/\s/g, "-"),
     };
   });
 
