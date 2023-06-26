@@ -1,4 +1,5 @@
 import { Client } from "@notionhq/client";
+import { NotionToMarkdown } from "notion-to-md";
 
 if (!process.env.NOTION_API_KEY) {
   throw new Error("NOTION_API_KEY is not defined");
@@ -9,6 +10,8 @@ if (!process.env.NOTION_CONTACT_DATABASE_ID) {
 }
 
 const notion = new Client({ auth: process.env.NOTION_API_KEY });
+const nmd = new NotionToMarkdown({ notionClient: notion });
+
 const databaseId = process.env.NOTION_CONTACT_DATABASE_ID;
 
 export type Contact = {
@@ -95,4 +98,47 @@ export async function addContactToDatabase(
     error: null,
     message: "Contact added to database",
   };
+}
+
+////////////////////////
+// Blog articles
+////////////////////////
+const blogPageID = "64a8f0d5-98b6-4e40-8bc3-a844c57553b1";
+
+export async function getBlogArticles() {
+  const articles = await getBlogPageChildrenIDs();
+
+  const articleContent = articles.map(async (article) => {
+    const mdblocks = await nmd.pageToMarkdown(article.id);
+    const mdstring = nmd.toMarkdownString(mdblocks);
+
+    return mdstring.parent;
+  });
+
+  return Promise.all(articleContent);
+}
+
+// Fetch every page id that is a direct child of the blog page
+// Note: Every child of the blog page is a blog article
+async function getBlogPageChildrenIDs() {
+  const response = await notion.blocks.children.list({
+    block_id: blogPageID,
+  });
+
+  console.log(response.results);
+
+  return response.results.map((result) => {
+    return {
+      id: result.id,
+    };
+  });
+}
+
+// Fetch the content of a blog article
+export async function getBlogArticleContent(id: string) {
+  const response = await notion.blocks.children.list({
+    block_id: id,
+  });
+
+  return response.results;
 }
