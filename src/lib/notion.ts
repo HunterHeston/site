@@ -113,22 +113,29 @@ export type BlogArticle = {
 };
 
 // Fetches all blog articles
-export async function getBlogArticles(): Promise<BlogArticle[]> {
-  const articles = await getBlogPageChildrenIDs();
+export async function getBlogArticles(): Promise<Map<string, BlogArticle>> {
+  const articleMetadata = await getBlogPageChildrenIDs();
 
-  const articleContent = articles.map(async (article) => {
-    const mdblocks = await nmd.pageToMarkdown(article.id);
+  const articlePromises = articleMetadata.map(async (meta) => {
+    const mdblocks = await nmd.pageToMarkdown(meta.id);
     const mdstring = nmd.toMarkdownString(mdblocks);
 
     return {
-      title: article.title,
+      title: meta.title,
       markdown: mdstring.parent || "",
-      created: article.created,
-      slug: article.title.toLowerCase().replace(/\s/g, "-"),
+      created: meta.created,
+      slug: meta.title.toLowerCase().replace(/\s/g, "-"),
     };
   });
 
-  return Promise.all(articleContent);
+  const articleContent = await Promise.all(articlePromises);
+
+  const articles = new Map<string, BlogArticle>();
+  for (const article of articleContent) {
+    articles.set(article.slug, article);
+  }
+
+  return articles;
 }
 
 // Fetch every page id that is a direct child of the blog page
