@@ -112,8 +112,31 @@ export type BlogArticle = {
   slug: string;
 };
 
+// Cache for blog articles.
+// Blogs should only be fetched at build time so there is no chance of data becoming stale.
+let articleCache: Map<string, BlogArticle> | null = null;
+
 // Fetches all blog articles
 export async function getBlogArticles(): Promise<Map<string, BlogArticle>> {
+  if (!articleCache) {
+    articleCache = await fetchBlogArticles();
+  }
+
+  // don't return the cache directly since it is mutable
+  return new Map(articleCache);
+}
+
+export async function lookupBlogArticle(
+  slug: string
+): Promise<BlogArticle | undefined> {
+  if (!articleCache) {
+    articleCache = await fetchBlogArticles();
+  }
+
+  return articleCache.get(slug);
+}
+
+async function fetchBlogArticles(): Promise<Map<string, BlogArticle>> {
   const articleMetadata = await getBlogPageChildrenIDs();
 
   const articlePromises = articleMetadata.map(async (meta) => {
