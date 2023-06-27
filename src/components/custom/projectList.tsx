@@ -6,7 +6,6 @@ import {
   CardTitle,
 } from "~/components/ui/card";
 
-import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 import { Cpu } from "lucide-react";
 import LiftedAvatar from "~/components/custom/liftedAvatar";
 

@@ -1,6 +1,5 @@
 import { Client } from "@notionhq/client";
 import { NotionToMarkdown } from "notion-to-md";
-import { type } from "os";
 
 if (!process.env.NOTION_API_KEY) {
   throw new Error("NOTION_API_KEY is not defined");
@@ -23,7 +22,7 @@ export type Contact = {
 };
 
 type UpdateDatabaseResult = {
-  error: Error | null;
+  error: Error | null | unknown;
   message: string;
 };
 
@@ -67,7 +66,7 @@ export async function addContactToDatabase(
     });
 
     const { id } = response;
-    const commentResponse = await notion.comments.create({
+    await notion.comments.create({
       parent: {
         page_id: id,
       },
@@ -88,7 +87,7 @@ export async function addContactToDatabase(
         },
       ],
     });
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error(error);
     return {
       error: error,
@@ -207,8 +206,8 @@ type NotionBlock = {
   last_edited_time: string;
   created_by: BlockUser;
   last_edited_by: BlockUser;
-  has_children: Boolean;
-  archived: Boolean;
+  has_children: boolean;
+  archived: boolean;
   type: string;
   child_page: ChildPage;
 };

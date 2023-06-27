@@ -1,10 +1,10 @@
 import { ArrowRight } from "lucide-react";
-import { GetStaticProps, type NextPage } from "next";
+import type { GetStaticProps } from "next";
 import Head from "next/head";
 import Link from "next/link";
 import H1 from "~/components/styled-tags/h1";
 import Main from "~/components/styled-tags/main";
-import { BlogArticle, getBlogArticles } from "~/lib/notion";
+import { type BlogArticle, getBlogArticles } from "~/lib/notion";
 
 export default function Articles({ articles }: { articles: BlogArticle[] }) {
   return (

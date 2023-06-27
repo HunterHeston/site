@@ -1,8 +1,11 @@
-import { GetStaticProps, GetStaticPropsContext } from "next";
+import type { GetStaticProps, GetStaticPropsContext } from "next";
 import Head from "next/head";
 import { ReactMarkdown } from "react-markdown/lib/react-markdown";
-
-import { BlogArticle, getBlogArticles, lookupBlogArticle } from "~/lib/notion";
+import {
+  type BlogArticle,
+  getBlogArticles,
+  lookupBlogArticle,
+} from "~/lib/notion";
 
 type ArticleProps = {
   article: BlogArticle;
