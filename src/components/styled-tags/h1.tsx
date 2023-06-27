@@ -7,5 +7,5 @@ type MainProps = {
 };
 
 export default function H1({ children, className }: MainProps) {
-  return <h1 className={cn("text-3xl", className)}>{children}</h1>;
+  return <h1 className={cn("text-3xl md:w-2/3", className)}>{children}</h1>;
 }

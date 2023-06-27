@@ -18,7 +18,7 @@ const Home: NextPage = () => {
           I&apos;m constantly building new things. Here are a few recent
           creations.
         </H1>
-        <p className="mb-10 text-zinc-500">
+        <p className="mb-10 text-zinc-500 md:w-2/3">
           I&apos;m a full stack developer and I&apos;ve built tons of little
           projects over the years. Here are a few of my favorites. If something
           sparks your interest, feel free to{" "}

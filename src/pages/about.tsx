@@ -82,7 +82,7 @@ const Home: NextPage = () => {
         <meta name="description" content="About Hunter Heston." />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Main className="text-base leading-7">
+      <Main className="text-base leading-7  md:w-2/3">
         <H1>
           I&apos;m Hunter Heston. I live in San Francisco where I build
           software.

@@ -44,13 +44,13 @@ const Home: NextPage = () => {
       </Head>
       <Main>
         <H1>Software Developer, Freelancer, Builder</H1>
-        <p className="mb- text-zinc-500">
+        <p className="text-zinc-500 md:w-2/3">
           I’m Hunter, I’m a software and website developer based in San
           Francisco. I’ve been developing software professionally for 6+ years
           at Google and Lockheed Martin. Now I’m using all of the skills I’ve
           learned to improve my clients businesses on the web.{" "}
         </p>
-        <div className="mb-10 flex gap-10">
+        <div className="flex gap-10 pb-10">
           <a href="https://github.com/hunterheston" target="_blank">
             <GithubIcon
               className="h-5 w-5 text-zinc-500"
@@ -70,7 +70,7 @@ const Home: NextPage = () => {
             ></LinkedinIcon>
           </a>
         </div>
-        <div className="mb-20 flex gap-10">
+        <div className="flex gap-10 pb-20">
           <Button className="grow">Hire Me!</Button>
           <Button className="grow" variant="outline">
             <Link href="/services">Services</Link>

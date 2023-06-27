@@ -16,7 +16,7 @@ export default function Articles({ articles }: { articles: BlogArticle[] }) {
       </Head>
       <Main>
         <H1>Writing about tech and other things</H1>
-        <p className="mb-10 text-zinc-500">
+        <p className="mb-10 text-zinc-500 md:w-2/3">
           This is where I share my personal opinions on tech, programming,
           business, coffee, climbing and whatever else is relevant to my life. I
           enjoy exploring how technology intersects with our daily lives and how

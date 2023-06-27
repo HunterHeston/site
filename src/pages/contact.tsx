@@ -16,7 +16,7 @@ const Home: NextPage = () => {
       </Head>
       <Main>
         <H1>Want to hire me?</H1>
-        <p>
+        <p className="md:w-2/3">
           I&apos;d love to hear from you! Send me an message at{" "}
           <a
             href="mailto:contact@hunterheston.com"
