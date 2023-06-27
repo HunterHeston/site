@@ -1,6 +1,4 @@
-import { ReactNode } from "react";
-import Head from "next/head";
-import Link from "next/link";
+import { type ReactNode } from "react";
 import Navigation from "./navigation";
 
 type Props = {
