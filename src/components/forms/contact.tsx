@@ -44,6 +44,7 @@ export function ContactForm() {
   // 2. Define a submit handler.
   function onSubmit(values: z.infer<typeof formSchema>) {
     mutation.mutate(values);
+    form.reset();
   }
 
   return (
