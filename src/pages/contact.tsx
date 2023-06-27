@@ -5,7 +5,6 @@ import Head from "next/head";
 import { ContactForm } from "~/components/forms/contact";
 import H1 from "~/components/styled-tags/h1";
 import Main from "~/components/styled-tags/main";
-import { Card } from "~/components/ui/card";
 
 const Home: NextPage = () => {
   return (
@@ -18,7 +17,7 @@ const Home: NextPage = () => {
       <Main>
         <H1>Want to hire me?</H1>
         <p>
-          I'd love to hear from you! Send me an message at{" "}
+          I&apos;d love to hear from you! Send me an message at{" "}
           <a
             href="mailto:contact@hunterheston.com"
             className="font-bold hover:underline"
@@ -28,7 +27,7 @@ const Home: NextPage = () => {
             <span className="sr-only">(opens email client)</span>
           </a>
         </p>
-        <p>Or fill out this form and I'll get back to you!</p>
+        <p>Or fill out this form and I&apos;ll get back to you!</p>
         <ContactForm></ContactForm>
       </Main>
     </>
