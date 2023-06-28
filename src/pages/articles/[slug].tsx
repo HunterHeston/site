@@ -8,14 +8,10 @@ import {
   H4,
   Blockquote,
   InlineCode,
-  Large,
-  Lead,
   Ul,
   Li,
   Ol,
-  Muted,
   P,
-  Small,
   THead,
   TBody,
   Table,
@@ -51,16 +47,16 @@ export default function Article({ article }: ArticleProps) {
           </p>
           <ReactMarkdown
             components={{
-              h1: ({ node, ...props }) => <H1 {...props} />,
-              h2: ({ node, ...props }) => <H2 {...props} />,
-              h3: ({ node, ...props }) => <H3 {...props} />,
-              h4: ({ node, ...props }) => <H4 {...props} />,
-              h5: ({ node, ...props }) => <h5 className="mb-2" {...props} />,
-              h6: ({ node, ...props }) => <h6 className="mb-2" {...props} />,
-              p: ({ node, ...props }) => (
+              h1: ({ ...props }) => <H1 {...props} />,
+              h2: ({ ...props }) => <H2 {...props} />,
+              h3: ({ ...props }) => <H3 {...props} />,
+              h4: ({ ...props }) => <H4 {...props} />,
+              h5: ({ ...props }) => <h5 className="mb-2" {...props} />,
+              h6: ({ ...props }) => <h6 className="mb-2" {...props} />,
+              p: ({ ...props }) => (
                 <P className="my-5 leading-loose" {...props} />
               ),
-              a: ({ node, ...props }) => (
+              a: ({ ...props }) => (
                 <a
                   className="text-primary transition-all hover:text-zinc-600"
                   target="_blank"
@@ -68,20 +64,20 @@ export default function Article({ article }: ArticleProps) {
                   {...props}
                 />
               ),
-              blockquote: ({ node, ...props }) => <Blockquote {...props} />,
-              br: ({ node, ...props }) => <br {...props} />,
-              em: ({ node, ...props }) => <em {...props} />,
-              hr: ({ node, ...props }) => <hr className="my-4" {...props} />,
-              img: ({ node, ...props }) => (
+              blockquote: ({ ...props }) => <Blockquote {...props} />,
+              br: ({ ...props }) => <br {...props} />,
+              em: ({ ...props }) => <em {...props} />,
+              hr: ({ ...props }) => <hr className="my-4" {...props} />,
+              img: ({ ...props }) => (
                 // eslint-disable-next-line @next/next/no-img-element, jsx-a11y/alt-text
                 <img {...props} />
               ),
-              pre: ({ node, ...props }) => <pre className="" {...props} />,
-              strong: ({ node, ...props }) => <strong {...props} />,
-              ol: ({ node, ...props }) => <Ol {...props} />,
-              ul: ({ node, ...props }) => <Ul {...props} />,
-              li: ({ node, ...props }) => <Li {...props} />,
-              code: ({ node, inline, className, children, ...props }) =>
+              pre: ({ ...props }) => <pre className="" {...props} />,
+              strong: ({ ...props }) => <strong {...props} />,
+              ol: ({ ...props }) => <Ol {...props} />,
+              ul: ({ ...props }) => <Ul {...props} />,
+              li: ({ ...props }) => <Li {...props} />,
+              code: ({ inline, className, children, ...props }) =>
                 inline ? (
                   <InlineCode {...props}>{children}</InlineCode>
                 ) : (
@@ -89,17 +85,17 @@ export default function Article({ article }: ArticleProps) {
                     {String(children)}
                   </code>
                 ),
-              table: ({ node, ...props }) => <Table {...props} />,
-              thead: ({ node, ...props }) => <THead {...props} />,
-              tbody: ({ node, ...props }) => <tbody {...props} />,
-              tr: ({ node, ...props }) => (
-                <tr
+              table: ({ ...props }) => <Table {...props} />,
+              thead: ({ ...props }) => <THead {...props} />,
+              tbody: ({ ...props }) => <TBody {...props} />,
+              tr: ({ ...props }) => (
+                <Tr
                   className="even:dark:text-darkAccent even:text-accent"
                   {...props}
                 />
               ),
-              th: ({ node, ...props }) => <Th {...props} />,
-              td: ({ node, ...props }) => <Td {...props} />,
+              th: ({ ...props }) => <Th {...props} />,
+              td: ({ ...props }) => <Td {...props} />,
             }}
           >
             {article.markdown}
