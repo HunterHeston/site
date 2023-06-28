@@ -1,7 +1,6 @@
 import { ArrowRight } from "lucide-react";
-import { GetServerSideProps, GetStaticProps } from "next";
 import Link from "next/link";
-import { BlogArticle, getBlogArticles } from "~/lib/notion";
+import type { BlogArticle } from "~/lib/notion";
 
 type Props = {
   articles: BlogArticle[];

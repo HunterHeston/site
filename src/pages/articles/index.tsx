@@ -1,7 +1,5 @@
-import { ArrowRight } from "lucide-react";
 import type { GetStaticProps } from "next";
 import Head from "next/head";
-import Link from "next/link";
 import ArticleList from "~/components/articleList";
 import H1 from "~/components/styled-tags/h1";
 import Main from "~/components/styled-tags/main";
