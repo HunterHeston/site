@@ -1,9 +1,9 @@
 import { type NextPage } from "next";
 
 import Head from "next/head";
-import H1 from "~/components/styled-tags/h1";
 import Main from "~/components/styled-tags/main";
 import { Badge } from "~/components/ui/badge";
+import { H1, P } from "~/components/ui/typography";
 
 // I'll bring this back later.
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -82,43 +82,46 @@ const Home: NextPage = () => {
         <meta name="description" content="About Hunter Heston." />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Main className="text-base leading-7  md:w-2/3">
-        <H1>
-          I&apos;m Hunter Heston. I live in San Francisco where I build
-          software.
-        </H1>
-        <div id="badge-container" className="flex flex-wrap gap-2">
-          <Badge>Software Engineer</Badge>
-          <Badge>Web Developer</Badge>
-          <Badge>Entrepreneur</Badge>
-          <Badge>Designer</Badge>
-          <Badge>Builder</Badge>
+      <Main className="prose flex min-w-full flex-col items-center">
+        <div className="md:w-2/3">
+          <H1>
+            I&apos;m Hunter Heston. I live in San Francisco where I build
+            software.
+          </H1>
+          <div id="badge-container" className="flex flex-wrap gap-2">
+            <Badge>Software Engineer</Badge>
+            <Badge>Web Developer</Badge>
+            <Badge>Entrepreneur</Badge>
+            <Badge>Designer</Badge>
+            <Badge>Builder</Badge>
+          </div>
+          <P>
+            With 6+ years of experience as a professional software engineer,
+            I&apos;ve immersed myself in the world of coding, constantly
+            expanding my knowledge and skills. My deep interest in the web has
+            fueled my enthusiasm for creating web applications that make a
+            tangible impact on real people
+          </P>
+          <P>
+            Driven by a relentless curiosity, I thrive on learning and embracing
+            new technologies. My expertise lies in understanding how computers
+            work and leveraging that knowledge to build innovative solutions. I
+            am dedicated to crafting web experiences that empower businesses to
+            thrive in the digital realm.
+          </P>
+          <P>
+            From revamping website designs to optimizing performance and
+            developing robust e-commerce platforms, I bring creativity and
+            technical proficiency to every project. By collaborating closely
+            with clients and tailoring solutions to their unique needs, I ensure
+            exceptional quality and exceed expectations.
+          </P>
+          <P>
+            Join me in leveraging the full potential of the web to transform
+            your online presence. Let&apos;s create something remarkable
+            together.
+          </P>
         </div>
-        <p className="text-zinc-500">
-          With 6+ years of experience as a professional software engineer,
-          I&apos;ve immersed myself in the world of coding, constantly expanding
-          my knowledge and skills. My deep interest in the web has fueled my
-          enthusiasm for creating web applications that make a tangible impact
-          on real people
-        </p>
-        <p className="text-zinc-500">
-          Driven by a relentless curiosity, I thrive on learning and embracing
-          new technologies. My expertise lies in understanding how computers
-          work and leveraging that knowledge to build innovative solutions. I am
-          dedicated to crafting web experiences that empower businesses to
-          thrive in the digital realm.
-        </p>
-        <p className="text-zinc-500">
-          From revamping website designs to optimizing performance and
-          developing robust e-commerce platforms, I bring creativity and
-          technical proficiency to every project. By collaborating closely with
-          clients and tailoring solutions to their unique needs, I ensure
-          exceptional quality and exceed expectations.
-        </p>
-        <p className="text-zinc-500">
-          Join me in leveraging the full potential of the web to transform your
-          online presence. Let&apos;s create something remarkable together.
-        </p>
       </Main>
     </>
   );

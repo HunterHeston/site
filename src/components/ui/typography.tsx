@@ -53,7 +53,11 @@ export function Small({ children }: { children: ReactNode }) {
 }
 
 export function P({ children }: { children: ReactNode }) {
-  return <p className="leading-7 [&:not(:first-child)]:mt-6">{children}</p>;
+  return (
+    <p className="leading-7 text-primary [&:not(:first-child)]:mt-6">
+      {children}
+    </p>
+  );
 }
 
 export function Muted({ children }: { children: ReactNode }) {
@@ -84,7 +88,7 @@ export function Blockquote({ children }: { children: ReactNode }) {
 
 export function H1({ children }: { children: ReactNode }) {
   return (
-    <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">
+    <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight text-primary lg:text-5xl">
       {children}
     </h1>
   );
