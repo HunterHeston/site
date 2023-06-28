@@ -1,4 +1,4 @@
-import { useState, type ReactNode } from "react";
+import { useState, type ReactNode, useEffect } from "react";
 import Navigation from "./navigation";
 
 enum Theme {
@@ -12,10 +12,15 @@ type Props = {
 
 const Layout = ({ children }: Props) => {
   const [darkMode, setDarkMode] = useState(Theme.LIGHT);
+
+  useEffect(() => {
+    setDarkMode(getSystemTheme());
+  }, []);
+
   return (
     <div className={darkMode}>
-      <div className="flex min-h-screen w-screen flex-col items-center bg-zinc-50 dark:bg-zinc-950">
-        <div className="min-h-screen w-screen bg-white dark:bg-zinc-900 dark:text-white md:w-3/4 md:px-5">
+      <div className="flex min-h-screen w-screen flex-col items-center bg-zinc-50 transition-all duration-500 dark:bg-zinc-950">
+        <div className="min-h-screen w-screen bg-white transition-all duration-500 dark:bg-zinc-900 dark:text-white md:w-3/4 md:px-5">
           <Navigation>
             <button
               onClick={() =>
@@ -32,5 +37,13 @@ const Layout = ({ children }: Props) => {
     </div>
   );
 };
+
+function getSystemTheme() {
+  if (typeof window !== "undefined") {
+    const systemTheme = window.matchMedia("(prefers-color-scheme: dark)");
+    return systemTheme.matches ? Theme.DARK : Theme.LIGHT;
+  }
+  return Theme.LIGHT;
+}
 
 export default Layout;
