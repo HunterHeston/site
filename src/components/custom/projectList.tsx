@@ -25,7 +25,7 @@ type ServiceCardProps = {
 
 export default function ProjectList({ projects }: ServiceCardProps) {
   return (
-    <Card className="md:w-fit">
+    <Card className="grow md:w-fit">
       <CardHeader>
         <div className="flex items-center gap-2">
           <Cpu></Cpu>

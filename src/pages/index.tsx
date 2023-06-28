@@ -1,11 +1,13 @@
 import { GithubIcon, LinkedinIcon, TwitterIcon } from "lucide-react";
-import { type NextPage } from "next";
+import { GetStaticProps, type NextPage } from "next";
 import Head from "next/head";
 import Link from "next/link";
+import ArticleList from "~/components/articleList";
 import ProjectList, { type Project } from "~/components/custom/projectList";
 import H1 from "~/components/styled-tags/h1";
 import Main from "~/components/styled-tags/main";
 import { Button } from "~/components/ui/button";
+import { BlogArticle, getBlogArticles } from "~/lib/notion";
 
 const projects: Project[] = [
   {
@@ -34,7 +36,15 @@ const projects: Project[] = [
   },
 ];
 
-const Home: NextPage = () => {
+type Props = {
+  articles: BlogArticle[];
+};
+
+type HomeProps = {
+  articles: BlogArticle[];
+};
+
+const Home: NextPage<HomeProps> = ({ articles }) => {
   return (
     <>
       <Head>
@@ -78,10 +88,26 @@ const Home: NextPage = () => {
             </Button>
           </Link>
         </div>
-        <ProjectList projects={projects}></ProjectList>
+        <div className="flex flex-wrap justify-between gap-5">
+          <div>
+            <h2 className="mb-4 px-5 text-2xl">Recent Posts</h2>
+            <ArticleList articles={articles}></ArticleList>
+          </div>
+          <ProjectList projects={projects}></ProjectList>
+        </div>
       </Main>
     </>
   );
+};
+
+export const getStaticProps: GetStaticProps = async () => {
+  const articles = await getBlogArticles();
+  const list = Array.from(articles.values());
+  return {
+    props: {
+      articles: list,
+    },
+  };
 };
 
 export default Home;

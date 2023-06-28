@@ -20,7 +20,7 @@ const Layout = ({ children }: Props) => {
   return (
     <div className={darkMode}>
       <div className="flex min-h-screen w-screen flex-col items-center bg-zinc-50 transition-all duration-500 dark:bg-zinc-950">
-        <div className="min-h-screen w-screen bg-white transition-all duration-500 dark:bg-zinc-900 dark:text-white md:w-3/4 md:px-5">
+        <div className="min-h-screen w-screen bg-white transition-all duration-500 dark:bg-zinc-900 dark:text-white md:w-5/6 md:px-5">
           <Navigation>
             <button
               onClick={() =>
