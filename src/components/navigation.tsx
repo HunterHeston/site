@@ -8,10 +8,13 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 import { ChevronDown } from "lucide-react";
-import { useTheme } from "next-themes";
+import { ReactNode } from "react";
 
-export default function Navigation() {
-  const { setTheme } = useTheme();
+type Props = {
+  children: ReactNode;
+};
+
+export default function Navigation({ children }: Props) {
   return (
     <div className="flex justify-between px-8 pt-8">
       <Link href="/">
@@ -51,12 +54,7 @@ export default function Navigation() {
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
-        <button
-          onClick={() => setTheme("dark")}
-          className="group flex items-center rounded-full bg-white/90 px-4 py-2 text-sm font-medium text-zinc-800 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur dark:bg-zinc-800/90 dark:text-zinc-200 dark:ring-white/10 dark:hover:ring-white/20"
-        >
-          ☀️
-        </button>
+        {children}
       </div>
     </div>
   );
