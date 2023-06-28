@@ -25,7 +25,7 @@ type ServiceCardProps = {
 
 export default function ProjectList({ projects }: ServiceCardProps) {
   return (
-    <Card>
+    <Card className="md:w-fit">
       <CardHeader>
         <div className="flex items-center gap-2">
           <Cpu></Cpu>
@@ -44,7 +44,7 @@ export default function ProjectList({ projects }: ServiceCardProps) {
             />
             <div className="flex grow flex-col gap-1">
               <h2 className="text-sm">{project.title}</h2>
-              <div className="flex justify-between text-xs text-zinc-500">
+              <div className="flex justify-between gap-10 text-xs text-zinc-500">
                 <p>{project.description}</p>
                 <p>
                   {project.startYear} - {project.endYear}
