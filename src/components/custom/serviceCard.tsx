@@ -21,7 +21,7 @@ export default function ServiceCard({
   badges,
 }: ServiceCardProps) {
   return (
-    <Card className="transition-all hover:-translate-y-1 hover:bg-zinc-50">
+    <Card className="transition-all hover:-translate-y-1 hover:bg-zinc-50 dark:hover:bg-zinc-800">
       <CardHeader>
         <CardTitle className="flex items-center gap-2">
           <CheckCircle></CheckCircle> {title}

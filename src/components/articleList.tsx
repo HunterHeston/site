@@ -18,7 +18,7 @@ export default function ArticleList({ articles }: Props) {
 
 function ArticleListItem({ article }: { article: BlogArticle }) {
   return (
-    <li className="mb-5 rounded-md p-5 transition-all hover:-translate-y-1 hover:bg-zinc-50 dark:hover:bg-zinc-950">
+    <li className="mb-5 rounded-md p-5 hover:-translate-y-1 hover:bg-zinc-50 dark:hover:bg-zinc-950">
       <h3 className="mb-2 text-xl font-semibold">{article.title}</h3>
       <p className="mb-1 text-sm text-zinc-500">
         {dateStringToDayMonthYear(article.created)} *{" "}

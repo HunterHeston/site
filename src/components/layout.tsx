@@ -1,4 +1,4 @@
-import { useState, type ReactNode, useEffect } from "react";
+import { useState, type ReactNode, useEffect, use } from "react";
 import Navigation from "./navigation";
 
 enum Theme {
@@ -13,14 +13,20 @@ type Props = {
 const Layout = ({ children }: Props) => {
   const [darkMode, setDarkMode] = useState(Theme.LIGHT);
 
+  // only run once on mount
   useEffect(() => {
     setDarkMode(getSystemTheme());
   }, []);
 
+  // run anytime darkMode changes
+  useEffect(() => {
+    setDarkModeOnBody(darkMode);
+  }, [darkMode]);
+
   return (
-    <div className={darkMode}>
-      <div className="flex min-h-screen w-screen flex-col items-center bg-zinc-50 transition-all duration-500 dark:bg-zinc-950">
-        <div className="min-h-screen w-screen bg-white transition-all duration-500 dark:bg-zinc-900 dark:text-white md:w-5/6 md:px-5">
+    <div>
+      <div className="flex min-h-screen w-screen flex-col items-center bg-zinc-50 duration-300 dark:bg-zinc-950">
+        <div className="min-h-screen w-screen bg-white duration-300 dark:bg-zinc-900 dark:text-white md:w-5/6 md:px-5">
           <Navigation>
             <button
               onClick={() =>
@@ -44,6 +50,12 @@ function getSystemTheme() {
     return systemTheme.matches ? Theme.DARK : Theme.LIGHT;
   }
   return Theme.LIGHT;
+}
+
+// actually set the dark mode on the body element
+// this has a external effect on the whole page
+function setDarkModeOnBody(darkMode: string) {
+  document.body.classList.toggle("dark", darkMode === "dark");
 }
 
 export default Layout;
