@@ -1,6 +1,5 @@
 import { useState, type ReactNode } from "react";
 import Navigation from "./navigation";
-import { ThemeProvider } from "./themeProvider";
 
 enum Theme {
   LIGHT = "",

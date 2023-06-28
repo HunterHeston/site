@@ -72,9 +72,11 @@ const Home: NextPage = () => {
         </div>
         <div className="flex gap-10 pb-20">
           <Button className="grow">Hire Me!</Button>
-          <Button className="grow" variant="outline">
-            <Link href="/services">Services</Link>
-          </Button>
+          <Link className="grow" href="/services">
+            <Button className="w-full" variant="outline">
+              Services
+            </Button>
+          </Link>
         </div>
         <ProjectList projects={projects}></ProjectList>
       </Main>
