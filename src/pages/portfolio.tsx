@@ -31,6 +31,7 @@ const Home: NextPage = () => {
           imgPath="work/hawken-pet-care.png"
           fallback="HPS"
           badges={["React", "Next.js", "TailwindCSS", "TypeScript"]}
+          URL="https://dog-walking.vercel.app/"
         />
         <ProjectCard
           title="Shrink.dev"
@@ -39,6 +40,7 @@ const Home: NextPage = () => {
           imgPath="work/shrink.png"
           fallback="SD"
           badges={["React", "Next.js", "TailwindCSS", "TypeScript"]}
+          URL="https://shrink.dev"
         />
         <ProjectCard
           title="Personalized Dog Bandanas"
@@ -47,6 +49,7 @@ const Home: NextPage = () => {
           imgPath="work/pdb.png"
           fallback="PDB"
           badges={["SquareSpace", "E-Commerce", "JavaScript"]}
+          URL="https://personalizeddogbandanas.com"
         />
       </Main>
     </>
