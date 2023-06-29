@@ -2,8 +2,8 @@ import { type NextPage } from "next";
 import Head from "next/head";
 import Link from "next/link";
 import ProjectCard from "~/components/custom/projectCard";
-import H1 from "~/components/styled-tags/h1";
 import Main from "~/components/styled-tags/main";
+import { H1 } from "~/components/ui/typography";
 
 const Home: NextPage = () => {
   return (
@@ -14,7 +14,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Main>
-        <H1>
+        <H1 className="md:w-2/3">
           I&apos;m constantly building new things. Here are a few recent
           creations.
         </H1>

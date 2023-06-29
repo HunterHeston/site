@@ -85,7 +85,7 @@ const Home: NextPage<HomeProps> = ({ articles }) => {
           </Link>
         </div>
         <div className="flex flex-wrap justify-between gap-5">
-          <div>
+          <div className="grow">
             <h2 className="mb-4 px-5 text-2xl">Recent Posts</h2>
             <ArticleList articles={articles}></ArticleList>
           </div>

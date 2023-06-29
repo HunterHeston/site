@@ -2,8 +2,8 @@ import { type NextPage } from "next";
 import Head from "next/head";
 import Link from "next/link";
 import ServiceCard from "~/components/custom/serviceCard";
-import H1 from "~/components/styled-tags/h1";
 import Main from "~/components/styled-tags/main";
+import { H1 } from "~/components/ui/typography";
 
 const Home: NextPage = () => {
   return (

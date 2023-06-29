@@ -1,6 +1,7 @@
 import { type NextPage } from "next";
 import Head from "next/head";
 import Main from "~/components/styled-tags/main";
+import { H1 } from "~/components/ui/typography";
 
 const Home: NextPage = () => {
   return (
@@ -11,7 +12,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Main>
-        <h1>Software, Hardware and other tech I use</h1>
+        <H1>Software, Hardware and other tech I use</H1>
 
         <h2>Hardware</h2>
         <ul>

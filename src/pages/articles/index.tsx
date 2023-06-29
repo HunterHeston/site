@@ -1,8 +1,8 @@
 import type { GetStaticProps } from "next";
 import Head from "next/head";
 import ArticleList from "~/components/articleList";
-import H1 from "~/components/styled-tags/h1";
 import Main from "~/components/styled-tags/main";
+import { H1 } from "~/components/ui/typography";
 import { type BlogArticle, getBlogArticles } from "~/lib/notion";
 
 export default function Articles({ articles }: { articles: BlogArticle[] }) {

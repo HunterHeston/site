@@ -1,4 +1,5 @@
-import { ReactNode } from "react";
+import type { ReactNode } from "react";
+import { cn } from "~/lib/utils";
 
 export function Ul({ children }: { children: ReactNode }) {
   return <ul className="my-6 ml-6 list-disc [&>li]:mt-2">{children}</ul>;
@@ -86,9 +87,20 @@ export function Blockquote({ children }: { children: ReactNode }) {
   );
 }
 
-export function H1({ children }: { children: ReactNode }) {
+export function H1({
+  children,
+  className,
+}: {
+  children: ReactNode;
+  className?: string;
+}) {
   return (
-    <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight text-primary lg:text-5xl">
+    <h1
+      className={cn(
+        "scroll-m-20 text-4xl font-extrabold tracking-tight text-primary lg:text-5xl",
+        className
+      )}
+    >
       {children}
     </h1>
   );
