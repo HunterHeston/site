@@ -1,5 +1,7 @@
 import { useState, type ReactNode, useEffect } from "react";
 import Navigation from "./navigation";
+import { Separator } from "./ui/separator";
+import Link from "next/link";
 
 const THEME_CONSTANT = "theme";
 
@@ -41,12 +43,69 @@ const Layout = ({ children }: Props) => {
             </button>
           </Navigation>
           <div>{children}</div>
+          <Footer></Footer>
         </div>
       </div>
     </div>
   );
 };
 
+function Footer() {
+  return (
+    <div className="flex h-36 max-w-full flex-col py-10">
+      <Separator className="mb-7 max-w-full"></Separator>
+      <div className="flex max-w-full flex-col justify-between px-7 text-zinc-500 md:flex-row">
+        <ul className="mb-2 flex gap-2 text-sm md:text-base">
+          <li>
+            <Link
+              className="transition-all hover:text-primary hover:underline"
+              href="/"
+            >
+              Home
+            </Link>
+          </li>
+          <li>
+            <Link
+              className="transition-all hover:text-primary hover:underline"
+              href="/portfolio"
+            >
+              Portfolio
+            </Link>
+          </li>
+          <li>
+            <Link
+              className="transition-all hover:text-primary hover:underline"
+              href="/about"
+            >
+              About
+            </Link>
+          </li>
+          <li>
+            <Link
+              className="transition-all hover:text-primary hover:underline"
+              href="/articles"
+            >
+              Articles
+            </Link>
+          </li>
+          <li>
+            <Link
+              className="transition-all hover:text-primary hover:underline"
+              href="/contact"
+            >
+              Contact
+            </Link>
+          </li>
+        </ul>
+        <p>Hunter Heston &copy; {new Date().getFullYear()}</p>
+      </div>
+    </div>
+  );
+}
+
+//////////////////////
+// Theme management //
+//////////////////////
 function getTheme() {
   const localTheme = getThemeFromLocalStorage();
   if (localTheme !== null) {

@@ -39,8 +39,8 @@ export default function Article({ article }: ArticleProps) {
         {/* <meta name="description" content={article.description} /> */}
         <meta name="date" content={datestringToYearMonthDay(article.created)} />
       </Head>
-      <main className="flex max-w-full justify-center">
-        <div className="prose max-w-full px-5 pt-16 text-primary">
+      <main className="flex justify-center">
+        <div className="prose w-full px-5 pt-16 text-primary">
           <h1 className="text-inherit">{article.title}</h1>
           <p className="border-l-2 border-l-zinc-600 pl-2 align-middle text-zinc-600 dark:text-primary">
             {dateStringToDayMonthYear(article.created)}
