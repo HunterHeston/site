@@ -93,7 +93,11 @@ export function ContactForm() {
             </FormItem>
           )}
         />
-        <Button disabled={mutation.isLoading} type="submit">
+        <Button
+          disabled={mutation.isLoading}
+          className="w-full md:w-fit"
+          type="submit"
+        >
           {mutation.isLoading ? (
             <Loader2 className="mr-2 h-4 w-4 animate-spin" />
           ) : null}
