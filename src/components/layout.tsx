@@ -109,7 +109,6 @@ function Footer() {
 function getTheme() {
   const localTheme = getThemeFromLocalStorage();
   if (localTheme !== null) {
-    console.log("Local: ", localTheme);
     return localTheme;
   }
 
@@ -139,7 +138,6 @@ function getSystemTheme() {
 // actually set the dark mode on the body element
 // this has a external effect on the whole page
 function setDarkModeOnBody(darkMode: string) {
-  console.log("Setting dark mode: ", darkMode);
   document.body.classList.toggle("dark", darkMode === "dark");
   localStorage.setItem(THEME_CONSTANT, darkMode);
 }

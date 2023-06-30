@@ -27,7 +27,6 @@ export const formsRouter = createTRPCRouter({
         });
       }
 
-      console.log(input);
       return {
         message: `Hello ${input.fullname}`,
       };
