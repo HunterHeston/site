@@ -45,12 +45,9 @@ export default function Navigation({ children }: Props) {
             <DropdownMenuItem>
               <Link href="/articles">Articles</Link>
             </DropdownMenuItem>
-            <DropdownMenuItem>
-              <Link href="/contact">Contact</Link>
-            </DropdownMenuItem>
             <DropdownMenuSeparator />
             <DropdownMenuItem>
-              <Link href="/contact">Hire Me</Link>
+              <Link href="/contact">Contact</Link>
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
