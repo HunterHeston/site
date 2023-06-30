@@ -4,9 +4,9 @@ import Head from "next/head";
 import Link from "next/link";
 import ArticleList from "~/components/articleList";
 import ProjectList, { type Project } from "~/components/custom/projectList";
-import H1 from "~/components/styled-tags/h1";
 import Main from "~/components/styled-tags/main";
 import { Button } from "~/components/ui/button";
+import { H1 } from "~/components/ui/typography";
 import { type BlogArticle, getBlogArticles } from "~/lib/notion";
 
 const projects: Project[] = [
