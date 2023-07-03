@@ -33,22 +33,22 @@ export default function Navigation({ children }: Props) {
             <ChevronDown className="h-4 w-4"></ChevronDown>
           </DropdownMenuTrigger>
           <DropdownMenuContent>
-            <DropdownMenuItem>
-              <Link href="/services">Service</Link>
-            </DropdownMenuItem>
-            <DropdownMenuItem>
-              <Link href="/portfolio">Portfolio</Link>
-            </DropdownMenuItem>
-            <DropdownMenuItem>
-              <Link href="/about">About</Link>
-            </DropdownMenuItem>
-            <DropdownMenuItem>
-              <Link href="/articles">Articles</Link>
-            </DropdownMenuItem>
+            <Link href="/services">
+              <DropdownMenuItem>Service</DropdownMenuItem>
+            </Link>
+            <Link href="/portfolio">
+              <DropdownMenuItem>Portfolio</DropdownMenuItem>
+            </Link>
+            <Link href="/about">
+              <DropdownMenuItem>About</DropdownMenuItem>
+            </Link>
+            <Link href="/articles">
+              <DropdownMenuItem>Articles</DropdownMenuItem>
+            </Link>
             <DropdownMenuSeparator />
-            <DropdownMenuItem>
-              <Link href="/contact">Contact</Link>
-            </DropdownMenuItem>
+            <Link href="/contact">
+              <DropdownMenuItem>Contact</DropdownMenuItem>
+            </Link>
           </DropdownMenuContent>
         </DropdownMenu>
         {children}
