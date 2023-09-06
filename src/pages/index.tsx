@@ -49,7 +49,7 @@ const Home: NextPage<HomeProps> = ({ articles }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Main>
-        <H1>Software Developer, Freelancer, Builder</H1>
+        <H1>Software Developer, Climber, Builder</H1>
         <p className="text-zinc-500 md:w-2/3">
           I’m Hunter, I’m a software and website developer based in San
           Francisco. I’ve been developing software professionally for 6+ years
@@ -100,10 +100,15 @@ const Home: NextPage<HomeProps> = ({ articles }) => {
 
 export const getStaticProps: GetStaticProps = async () => {
   const articles = await getBlogArticles();
-  const list = Array.from(articles.values());
+  const articleList = Array.from(articles.values());
+
+  articleList.sort((a, b) => {
+    return new Date(b.created).getTime() - new Date(a.created).getTime();
+  });
+
   return {
     props: {
-      articles: list,
+      articles: articleList,
     },
   };
 };

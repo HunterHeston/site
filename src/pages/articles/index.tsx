@@ -29,9 +29,15 @@ export default function Articles({ articles }: { articles: BlogArticle[] }) {
 
 export const getStaticProps: GetStaticProps = async () => {
   const articles = await getBlogArticles();
+
+  const articleList = Array.from(articles.values());
+  articleList.sort((a, b) => {
+    return new Date(b.created).getTime() - new Date(a.created).getTime();
+  });
+
   return {
     props: {
-      articles: Array.from(articles.values()),
+      articles: articleList,
     },
   };
 };
