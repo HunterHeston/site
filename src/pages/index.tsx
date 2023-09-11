@@ -1,10 +1,4 @@
-import {
-  GithubIcon,
-  LinkedinIcon,
-  Mail,
-  MailIcon,
-  TwitterIcon,
-} from "lucide-react";
+import { GithubIcon, LinkedinIcon, Mail, TwitterIcon } from "lucide-react";
 import type { GetStaticProps, NextPage } from "next";
 import Head from "next/head";
 import Link from "next/link";

@@ -25,6 +25,8 @@ const Layout = ({ children }: Props) => {
     setDarkMode(theme);
   }, []);
 
+  const gradientClasses =
+    "bg-gradient-to-r from-blue-500 to-purple-600 text-white hover:from-blue-400 hover:to-purple-500 transition duration-300";
   return (
     <div>
       <div className="flex min-h-screen w-screen flex-col items-center bg-zinc-50 duration-300 dark:bg-zinc-950">
@@ -32,6 +34,16 @@ const Layout = ({ children }: Props) => {
           {/* container that pushes footer to the bottom on large screens */}
           <div className="flex-grow">
             <Navigation>
+              <Link
+                target="_blank"
+                href="/hunter-heston.pdf"
+                className={
+                  "group flex items-center rounded-full bg-white/90 px-4 py-2 text-sm font-medium text-zinc-800 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur dark:bg-zinc-800/90 dark:text-zinc-200 dark:ring-white/10 dark:hover:ring-white/20 " +
+                  gradientClasses
+                }
+              >
+                Resume
+              </Link>
               <button
                 onClick={() => {
                   const nextTheme =
