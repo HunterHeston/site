@@ -1,4 +1,10 @@
-import { GithubIcon, LinkedinIcon, TwitterIcon } from "lucide-react";
+import {
+  GithubIcon,
+  LinkedinIcon,
+  Mail,
+  MailIcon,
+  TwitterIcon,
+} from "lucide-react";
 import type { GetStaticProps, NextPage } from "next";
 import Head from "next/head";
 import Link from "next/link";
@@ -56,7 +62,7 @@ const Home: NextPage<HomeProps> = ({ articles }) => {
           at Google and Lockheed Martin. Now I’m using all of the skills I’ve
           learned to improve my clients businesses on the web.{" "}
         </p>
-        <div className="flex gap-10 pb-10">
+        <div className="flex flex-wrap gap-x-10 gap-y-5 pb-10">
           <a href="https://github.com/hunterheston" target="_blank">
             <GithubIcon
               className="h-5 w-5 text-zinc-500"
@@ -74,6 +80,14 @@ const Home: NextPage<HomeProps> = ({ articles }) => {
               className="h-5 w-5 text-zinc-500"
               fill="currentColor"
             ></LinkedinIcon>
+          </a>
+          <a
+            href="mailto:contact@hunterheston.com"
+            className="text-zinc-500 hover:underline"
+          >
+            <Mail className="mr-3 inline-block h-5 w-5 align-middle" />
+            contact@hunterheston.com{" "}
+            <span className="sr-only">(opens email client)</span>
           </a>
         </div>
         <div className="flex gap-10 pb-20">
