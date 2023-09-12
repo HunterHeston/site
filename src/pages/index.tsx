@@ -86,7 +86,7 @@ const Home: NextPage<HomeProps> = ({ articles }) => {
         </div>
         <div className="flex gap-10 pb-20">
           <Link className="grow" href="/contact">
-            <Button className="w-full">Hire Me!</Button>
+            <Button className="w-full">Contact me!</Button>
           </Link>
           <Link className="grow" href="/services">
             <Button className="w-full" variant="outline">

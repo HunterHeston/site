@@ -23,7 +23,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Main>
-        <H1 className="mb-10">Want to hire me?</H1>
+        <H1 className="mb-10">Send me a message.</H1>
         <div className="flex flex-col gap-20 md:flex-row">
           <div className="grow">
             <p className="mb-2 text-xl text-zinc-400">
