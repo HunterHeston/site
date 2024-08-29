@@ -57,7 +57,7 @@ const Home: NextPage<HomeProps> = ({ articles }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Main>
-        <H1>Software Developer, Climber, Builder</H1>
+        <H1>Software Engineer</H1>
         <p className="text-zinc-500 md:w-2/3">
           I’m Hunter, I’m a software and website developer based in San
           Francisco. I’ve been developing software professionally for 6+ years
