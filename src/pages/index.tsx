@@ -11,7 +11,15 @@ import { type BlogArticle, getBlogArticles } from "~/lib/notion";
 
 const projects: Project[] = [
   {
-    title: "Google",
+    title: "Google - Contract",
+    description: "Fullstack Engineer",
+    startYear: "Present",
+    endYear: "Feb 2024",
+    imgPath: "/google.png",
+    fallback: "G",
+  },
+  {
+    title: "Google - Full Time",
     description: "Software Engineer L4",
     startYear: "Mar 2021",
     endYear: "Mar 2023",
