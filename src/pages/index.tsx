@@ -96,9 +96,9 @@ const Home: NextPage<HomeProps> = ({ articles }) => {
           <Link className="grow" href="/contact">
             <Button className="w-full">Contact me!</Button>
           </Link>
-          <Link className="grow" href="/services">
+          <Link className="grow" href="/about">
             <Button className="w-full" variant="outline">
-              Services
+              About
             </Button>
           </Link>
         </div>

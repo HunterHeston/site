@@ -33,9 +33,9 @@ export default function Navigation({ children }: Props) {
             <ChevronDown className="h-4 w-4"></ChevronDown>
           </DropdownMenuTrigger>
           <DropdownMenuContent>
-            <Link href="/services">
+            {/* <Link href="/services">
               <DropdownMenuItem>Service</DropdownMenuItem>
-            </Link>
+            </Link> */}
             <Link href="/portfolio">
               <DropdownMenuItem>Portfolio</DropdownMenuItem>
             </Link>
